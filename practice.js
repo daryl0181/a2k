@@ -1,12 +1,5 @@
-import { useState } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  FlatList,
-} from "react-native";
+import { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -17,14 +10,11 @@ export default function App() {
   }
 
   function addGoalHandler() {
-    setCourseGoals((currentCourseGoals) => [
-      ...currentCourseGoals,
-      { key: Math.random().toString(), value: enteredGoalText },
-    ]);
+    setCourseGoals(currentCourseGoals => [...currentCourseGoals, { key: Math.random().toString(), value: enteredGoalText }]);
   }
 
   function deleteGoalHandler(goalKey) {
-    setCourseGoals((currentCourseGoals) => {
+    setCourseGoals(currentCourseGoals => {
       return currentCourseGoals.filter((goal) => goal.key !== goalKey);
     });
   }
@@ -45,11 +35,7 @@ export default function App() {
           renderItem={(itemData) => (
             <View style={styles.goalItem}>
               <Text style={styles.goalText}>{itemData.item.value}</Text>
-              <Button
-                title="Delete"
-                color="#ff5c5c"
-                onPress={() => deleteGoalHandler(itemData.item.key)}
-              />
+              <Button title="Delete" color="#ff5c5c" onPress={() => deleteGoalHandler(itemData.item.key)} />
             </View>
           )}
         />
@@ -65,17 +51,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   textInput: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 24,
     borderBottomWidth: 1,
-    borderBottomColor: "#cccccc",
+    borderBottomColor: '#cccccc',
   },
   textBorder: {
     borderWidth: 1,
-    borderColor: "#cccccc",
-    width: "70%",
+    borderColor: '#cccccc',
+    width: '70%',
     margin: 8,
     padding: 8,
   },
@@ -83,16 +69,16 @@ const styles = StyleSheet.create({
     flex: 5,
   },
   goalItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginVertical: 8,
     padding: 8,
     borderRadius: 6,
-    backgroundColor: "lightblue",
+    backgroundColor: 'lightblue',
   },
   goalText: {
-    color: "black",
-    width: "80%",
+    color: 'black',
+    width: '80%',
   },
 });
