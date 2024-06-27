@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblue',
   },
   goalText: {
-    color: 'white',
-    width: '20%',
+    color: 'black',
+    width: '80%',
   },
 });
