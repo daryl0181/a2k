@@ -93,6 +93,6 @@ const styles = StyleSheet.create({
   },
   goalText: {
     color: "black",
-    width: "80%",
+    width: "70%",
   },
 });
